@@ -1,4 +1,3 @@
-import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const ResourcesPage = () => {
@@ -6,14 +5,20 @@ const ResourcesPage = () => {
     <>
       <MetaTags title="Resources" description="Resources page" />
 
-      <h1>ResourcesPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/ResourcesPage/ResourcesPage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>resources</code>, link to me with `
-        <Link to={routes.resources()}>Resources</Link>`
-      </p>
+      <h1>Resources</h1>
+
+      <ul>
+        <li>
+          <a href="https://www.reddit.com/r/ADHD_Programmers/">
+            ADHD Programmers Reddit
+          </a>
+        </li>
+        <li>
+          <a href="https://www.reddit.com/r/ADHD_Programmers/">ADHD 2.0</a>
+          Despite a cringe-worthy title, a modern take from the seminal
+          researchers on ADHD.
+        </li>
+      </ul>
     </>
   )
 }
