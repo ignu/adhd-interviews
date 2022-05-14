@@ -2252,6 +2252,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fullhuman/postcss-purgecss@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "@fullhuman/postcss-purgecss@npm:4.1.3"
+  dependencies:
+    purgecss: ^4.1.3
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: fe3d50c926f5320266a8c55e81289b4775672fa77072e9ec043183f02a4dfb48f658cc8f0fb020d91c2277231c81cb4a7306fff7534d80fe9ff6ecd18c1184d1
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1, @gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -9481,7 +9492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^8.3.0":
+"commander@npm:^8.0.0, commander@npm:^8.3.0":
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 8b043bb8322ea1c39664a1598a95e0495bfe4ca2fad0d84a92d7d1d8d213e2a155b441d2470c8e08de7c4a28cf2bc6e169211c49e1b21d9f7edc6ae4d9356060
@@ -13385,7 +13396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
+"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7":
   version: 7.2.2
   resolution: "glob@npm:7.2.2"
   dependencies:
@@ -19891,6 +19902,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"purgecss@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "purgecss@npm:4.1.3"
+  dependencies:
+    commander: ^8.0.0
+    glob: ^7.1.7
+    postcss: ^8.3.5
+    postcss-selector-parser: ^6.0.6
+  bin:
+    purgecss: bin/purgecss.js
+  checksum: 9b29872298bc65a290c6ccf7ea862dd1c94f78ca593e78ae7d36c6341e113ddbe657bf1c0bf7bb3dad76f8d6c98a0667e6da1d126afa5702d3137db8547feaa2
+  languageName: node
+  linkType: hard
+
 "qs@npm:6.10.3, qs@npm:^6.10.0":
   version: 6.10.3
   resolution: "qs@npm:6.10.3"
@@ -24039,6 +24064,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@fullhuman/postcss-purgecss": ^4.1.3
     "@redwoodjs/forms": 1.4.0
     "@redwoodjs/router": 1.4.0
     "@redwoodjs/web": 1.4.0
