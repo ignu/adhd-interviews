@@ -26,13 +26,17 @@ module.exports = __toCommonJS(graphql_exports);
 var import_graphql_server = require("@redwoodjs/graphql-server");
 var directives_requireAuth_requireAuth = __toESM(require("../directives/requireAuth/requireAuth"));
 var directives_skipAuth_skipAuth = __toESM(require("../directives/skipAuth/skipAuth"));
+var sdls_behavioralQuestions_sdl = __toESM(require("../graphql/behavioralQuestions.sdl"));
+var services_behavioralQuestions_behavioralQuestions = __toESM(require("../services/behavioralQuestions/behavioralQuestions"));
 var import_db = require("../lib/db");
 var import_logger = require("../lib/logger");
 let directives = {};
 directives.requireAuth_requireAuth = directives_requireAuth_requireAuth;
 directives.skipAuth_skipAuth = directives_skipAuth_skipAuth;
 let sdls = {};
+sdls.behavioralQuestions_sdl = sdls_behavioralQuestions_sdl;
 let services = {};
+services.behavioralQuestions_behavioralQuestions = services_behavioralQuestions_behavioralQuestions;
 const handler = (0, import_graphql_server.createGraphQLHandler)({
   loggerConfig: {
     logger: import_logger.logger,

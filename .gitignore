@@ -49,3 +49,6 @@ local.properties
 
 # storybook
 /storybook-static
+
+api/dist
+web/dist

@@ -7,7 +7,32 @@ directive @requireAuth(roles: [String]) on FIELD_DEFINITION
 """Use to skip authentication checks and allow public access."""
 directive @skipAuth on FIELD_DEFINITION
 
+type BehavioralQuestion {
+  category: BehavioralQuestionCategory!
+  common: Boolean!
+  id: String!
+  question: String!
+}
+
+enum BehavioralQuestionCategory {
+  ACTION_ORIENTED
+  ADAPTIVE
+  COMMUNICATION
+  CONFLICT
+  CREATIVITY
+  DECISION_MAKING
+  HANDLING_PRESSURE
+  PROBLEM_SOLVING
+  TEAMWORK
+}
+
 scalar BigInt
+
+input CreateBehavioralQuestionInput {
+  category: BehavioralQuestionCategory!
+  common: Boolean!
+  question: String!
+}
 
 scalar Date
 
@@ -17,7 +42,15 @@ scalar JSON
 
 scalar JSONObject
 
+type Mutation {
+  createBehavioralQuestion(input: CreateBehavioralQuestionInput!): BehavioralQuestion!
+  deleteBehavioralQuestion(id: String!): BehavioralQuestion!
+  updateBehavioralQuestion(id: String!, input: UpdateBehavioralQuestionInput!): BehavioralQuestion!
+}
+
 type Query {
+  behavioralQuestion(id: String!): BehavioralQuestion
+  behavioralQuestions: [BehavioralQuestion!]!
   redwood: Redwood
 }
 
@@ -28,3 +61,9 @@ type Redwood {
 }
 
 scalar Time
+
+input UpdateBehavioralQuestionInput {
+  category: BehavioralQuestionCategory
+  common: Boolean
+  question: String
+}

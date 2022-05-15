@@ -13,6 +13,10 @@ type QueryParams = Record<string | number, string | number | boolean>
 declare module '@redwoodjs/router' {
   interface AvailableRoutes {
     // Only "<Route />" components with a "name" and "path" prop will be populated here.
+    newBehavioralQuestion: (params?: RouteParams<"/behavioral-questions/new"> & QueryParams) => "/behavioral-questions/new"
+    editBehavioralQuestion: (params?: RouteParams<"/behavioral-questions/{id}/edit"> & QueryParams) => "/behavioral-questions/{id}/edit"
+    behavioralQuestion: (params?: RouteParams<"/behavioral-questions/{id}"> & QueryParams) => "/behavioral-questions/{id}"
+    behavioralQuestions: (params?: RouteParams<"/behavioral-questions"> & QueryParams) => "/behavioral-questions"
     resources: (params?: RouteParams<"/resources"> & QueryParams) => "/resources"
   }
 }

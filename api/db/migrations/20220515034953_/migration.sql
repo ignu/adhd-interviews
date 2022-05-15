@@ -11,13 +11,13 @@ CREATE TABLE "UserExample" (
 );
 
 -- CreateTable
-CREATE TABLE "BehavorialQuestion" (
+CREATE TABLE "BehavioralQuestion" (
     "id" TEXT NOT NULL,
     "question" TEXT NOT NULL,
     "category" "BehavioralQuestionCategory" NOT NULL,
     "common" BOOLEAN NOT NULL DEFAULT false,
 
-    CONSTRAINT "BehavorialQuestion_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "BehavioralQuestion_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

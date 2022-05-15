@@ -29,7 +29,7 @@ enum BehavioralQuestionCategory {
   TEAMWORK
 }
 
-model BehavorialQuestion {
+model BehavioralQuestion {
   id       String @id @default(cuid())
   question String
   category BehavioralQuestionCategory

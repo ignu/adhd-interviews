@@ -2,9 +2,17 @@
 import FatalErrorPageType from '/Users/len/code/adhd-interviews/web/src/pages/FatalErrorPage/FatalErrorPage'
 import NotFoundPageType from '/Users/len/code/adhd-interviews/web/src/pages/NotFoundPage/NotFoundPage'
 import ResourcesPageType from '/Users/len/code/adhd-interviews/web/src/pages/ResourcesPage/ResourcesPage'
+import BehavioralQuestionBehavioralQuestionPageType from '/Users/len/code/adhd-interviews/web/src/pages/BehavioralQuestion/BehavioralQuestionPage/BehavioralQuestionPage'
+import BehavioralQuestionBehavioralQuestionsPageType from '/Users/len/code/adhd-interviews/web/src/pages/BehavioralQuestion/BehavioralQuestionsPage/BehavioralQuestionsPage'
+import BehavioralQuestionEditBehavioralQuestionPageType from '/Users/len/code/adhd-interviews/web/src/pages/BehavioralQuestion/EditBehavioralQuestionPage/EditBehavioralQuestionPage'
+import BehavioralQuestionNewBehavioralQuestionPageType from '/Users/len/code/adhd-interviews/web/src/pages/BehavioralQuestion/NewBehavioralQuestionPage/NewBehavioralQuestionPage'
 
 declare global {
   const FatalErrorPage: typeof FatalErrorPageType
   const NotFoundPage: typeof NotFoundPageType
   const ResourcesPage: typeof ResourcesPageType
+  const BehavioralQuestionBehavioralQuestionPage: typeof BehavioralQuestionBehavioralQuestionPageType
+  const BehavioralQuestionBehavioralQuestionsPage: typeof BehavioralQuestionBehavioralQuestionsPageType
+  const BehavioralQuestionEditBehavioralQuestionPage: typeof BehavioralQuestionEditBehavioralQuestionPageType
+  const BehavioralQuestionNewBehavioralQuestionPage: typeof BehavioralQuestionNewBehavioralQuestionPageType
 }
