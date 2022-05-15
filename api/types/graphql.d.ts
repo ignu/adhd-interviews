@@ -1,5 +1,5 @@
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import { UserExample as PrismaUserExample, BehavioralQuestion as PrismaBehavioralQuestion } from '.prisma/client';
+import { User as PrismaUser, BehavioralQuestionAnswer as PrismaBehavioralQuestionAnswer, BehavioralQuestion as PrismaBehavioralQuestion } from '.prisma/client';
 import { RedwoodGraphQLContext } from '@redwoodjs/graphql-server/dist/functions/types';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;

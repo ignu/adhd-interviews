@@ -1,6 +1,8 @@
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -14,29 +16,72 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var auth_exports = {};
 __export(auth_exports, {
+  getCurrentUser: () => getCurrentUser,
   hasRole: () => hasRole,
   isAuthenticated: () => isAuthenticated,
   requireAuth: () => requireAuth
 });
 module.exports = __toCommonJS(auth_exports);
-const isAuthenticated = () => {
-  return true;
+var import_is_array = __toESM(require("@babel/runtime-corejs3/core-js/array/is-array"));
+var import_includes = __toESM(require("@babel/runtime-corejs3/core-js/instance/includes"));
+var import_some = __toESM(require("@babel/runtime-corejs3/core-js/instance/some"));
+var import_graphql_server = require("@redwoodjs/graphql-server");
+var import_db = require("./db");
+const getCurrentUser = async (session) => {
+  return await import_db.db.user.findUnique({
+    where: {
+      id: session.id
+    },
+    select: {
+      id: true
+    }
+  });
 };
-const hasRole = ({
-  roles
-}) => {
-  return roles !== void 0;
+const isAuthenticated = () => {
+  return !!import_graphql_server.context.currentUser;
+};
+const hasRole = (roles) => {
+  var _a;
+  if (!isAuthenticated()) {
+    return false;
+  }
+  const currentUserRoles = (_a = import_graphql_server.context.currentUser) == null ? void 0 : _a.roles;
+  if (typeof roles === "string") {
+    if (typeof currentUserRoles === "string") {
+      return currentUserRoles === roles;
+    } else if ((0, import_is_array.default)(currentUserRoles)) {
+      return currentUserRoles == null ? void 0 : currentUserRoles.some((allowedRole) => roles === allowedRole);
+    }
+  }
+  if ((0, import_is_array.default)(roles)) {
+    if ((0, import_is_array.default)(currentUserRoles)) {
+      return currentUserRoles == null ? void 0 : currentUserRoles.some((allowedRole) => (0, import_includes.default)(roles).call(roles, allowedRole));
+    } else if (typeof import_graphql_server.context.currentUser.roles === "string") {
+      return (0, import_some.default)(roles).call(roles, (allowedRole) => {
+        var _a2;
+        return ((_a2 = import_graphql_server.context.currentUser) == null ? void 0 : _a2.roles) === allowedRole;
+      });
+    }
+  }
+  return false;
 };
 const requireAuth = ({
   roles
 }) => {
-  return isAuthenticated();
+  if (!isAuthenticated()) {
+    throw new import_graphql_server.AuthenticationError("You don't have permission to do that.");
+  }
+  if (roles && !hasRole(roles)) {
+    throw new import_graphql_server.ForbiddenError("You don't have access to do that.");
+  }
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  getCurrentUser,
   hasRole,
   isAuthenticated,
   requireAuth
