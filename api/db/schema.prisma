@@ -23,6 +23,7 @@ model User {
   admin               Boolean @default(false)
 
   answers             BehavioralQuestionAnswer[]
+  @@index(email)
 }
 
 enum BehavioralQuestionCategory {
@@ -38,21 +39,27 @@ enum BehavioralQuestionCategory {
 }
 
 model BehavioralQuestionAnswer {
-  id       String @id @default(cuid())
+  id       Int       @id @default(autoincrement())
   answer   String
 
   userId   Int
   user     User @relation(fields: [userId], references: [id])
 
-  behavioralQuestionId String
+  public   Boolean @default(false)
+  showUserName Boolean @default(false)
+
+  behavioralQuestionId Int
   behavioralQuestion BehavioralQuestion @relation(fields: [behavioralQuestionId], references: [id])
+  @@index(userId)
+  @@index(behavioralQuestionId)
 }
 
 model BehavioralQuestion {
-  id       String @id @default(cuid())
+  id       Int       @id @default(autoincrement())
   question String
   category BehavioralQuestionCategory
   common   Boolean @default(false)
 
   answers  BehavioralQuestionAnswer[]
+  @@index(common)
 }
