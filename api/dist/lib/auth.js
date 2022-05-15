@@ -37,7 +37,8 @@ const getCurrentUser = async (session) => {
       id: session.id
     },
     select: {
-      id: true
+      id: true,
+      name: true
     }
   });
 };

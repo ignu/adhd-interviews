@@ -29,10 +29,8 @@ const SignupPage = () => {
   }, [])
 
   const onSubmit = async (data) => {
-    console.log(data)
     const response = await signUp({ ...data })
 
-    console.log(response, '🦄 response')
     if (response.message) {
       toast(response.message)
     } else if (response.error) {
