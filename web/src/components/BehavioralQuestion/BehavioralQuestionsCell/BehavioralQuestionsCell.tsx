@@ -22,10 +22,7 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No behavioralQuestions yet. '}
-      <Link
-        to={routes.newBehavioralQuestion()}
-        className="rw-link"
-      >
+      <Link to={routes.newBehavioralQuestion()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
@@ -36,6 +33,8 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ behavioralQuestions }: CellSuccessProps<FindBehavioralQuestions>) => {
-  return <BehavioralQuestions behavioralQuestions={behavioralQuestions} />
+export const Success = ({
+  behavioralQuestions,
+}: CellSuccessProps<FindBehavioralQuestions>) => {
+  return <BehavioralQuestions questions={behavioralQuestions} />
 }
