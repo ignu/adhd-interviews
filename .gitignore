@@ -5,6 +5,9 @@ node_modules
 /.pnp
 .pnp.js
 
+api/dist
+.redwood
+
 # testing
 /coverage
 

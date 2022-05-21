@@ -1,5 +1,6 @@
 import { BehavioralQuestion } from 'types/graphql'
 import ReactMarkdown from 'react-markdown'
+import NewBehavioralQuestionAnswer from 'src/components/BehavioralQuestionAnswer/NewBehavioralQuestionAnswer'
 
 const BehavioralQuestionsList = ({
   questions,
@@ -9,9 +10,12 @@ const BehavioralQuestionsList = ({
   return (
     <div className="rw-segment rw-table-wrapper-responsive p-4 mb-4">
       {questions.map((behavioralQuestion) => (
-        <h2>
-          <ReactMarkdown>{behavioralQuestion.question}</ReactMarkdown>
-        </h2>
+        <div>
+          <h2>
+            <ReactMarkdown>{behavioralQuestion.question}</ReactMarkdown>
+          </h2>
+          <NewBehavioralQuestionAnswer />
+        </div>
       ))}
     </div>
   )
