@@ -21,6 +21,7 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
   admin               Boolean @default(false)
+  roles               String?
 
   answers             BehavioralQuestionAnswer[]
   @@index(email)
